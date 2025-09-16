@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Izabella Marie Weddings | Wedding Planning & Coordination</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* General Body and Container Styling */
         body {
@@ -13,12 +15,67 @@
             background-color: #f7f3f0;
             color: #4b4b4b;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         .container {
             max-width: 960px;
             margin: 0 auto;
             padding: 20px;
+        }
+
+        /* Navigation Menu & Burger Icon */
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .menu-icon {
+            font-size: 2em;
+            cursor: pointer;
+            color: #8c736a;
+            z-index: 1000;
+        }
+        
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            padding-top: 60px;
+            transition: right 0.3s ease;
+            z-index: 999;
+        }
+
+        .nav-menu.open {
+            right: 0;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e6e0da;
+        }
+
+        .nav-menu a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+            color: #8c736a;
+            text-decoration: none;
+        }
+        
+        .nav-menu a:hover {
+            color: #6a534c;
         }
 
         /* Header and Hero Section */
@@ -45,7 +102,7 @@
             text-align: center;
             color: white;
             padding: 100px 20px;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1500x800.png?text=Elegant+Wedding+Hero+Image') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542042125-901b0f56a31f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 40px;
@@ -127,6 +184,96 @@
             font-weight: bold;
         }
 
+        /* New Sections: Gallery, FAQs, Contact */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .faq-item {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        
+        .faq-item h3 {
+            color: #8c736a;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .faq-item h3::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            font-size: 1.2em;
+        }
+
+        .faq-item h3.active::after {
+            content: '-';
+        }
+
+        .faq-item p {
+            display: none;
+            margin-top: 10px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form input[type="date"],
+        .contact-form textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form .form-group-half {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-form .form-group-half div {
+            flex: 1;
+        }
+
+        .contact-form .cta-button {
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -134,6 +281,18 @@
             background-color: #e6e0da;
             color: #8c736a;
             border-top: 1px solid #d9d0c9;
+            margin-top: 40px;
+        }
+
+        .social-icons a {
+            font-size: 1.5em;
+            margin: 0 10px;
+            color: #8c736a;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #6a534c;
         }
 
         /* Responsive Design */
@@ -147,13 +306,31 @@
             .service-item, .about-item {
                 flex-basis: 100%;
             }
+            .contact-form .form-group-half {
+                flex-direction: column;
+            }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
+        <div class="navbar">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#services" onclick="toggleMenu()">Services</a></li>
+                    <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+                    <li><a href="#faqs" onclick="toggleMenu()">FAQs</a></li>
+                    <li><a href="#gallery" onclick="toggleMenu()">Gallery</a></li>
+                    <li><a href="#contact" class="cta-button" onclick="toggleMenu()">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+
         <header>
             <h1>Izabella Marie Weddings</h1>
             <p>Your Dream Wedding Awaits</p>
@@ -163,21 +340,21 @@
             <div class="hero-text">
                 <h2>Bespoke Wedding Planning & Design</h2>
                 <p>Creating unforgettable moments and seamless celebrations tailored to your unique love story.</p>
-                <a href="mailto:connect@izabellamarieweddings.com" class="cta-button">Get a Quote</a>
+                <a href="#contact" class="cta-button">Get in Touch</a>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="about">
             <h2>About Us</h2>
             <div class="about-content">
                 <div class="about-item">
-                    <p>Izabella Marie Weddings is a premier wedding planning and coordination service based in the heart of **Dallas, Texas**. We believe that every love story is unique and deserves a celebration that reflects its beauty and authenticity.</p>
+                    <p>Izabella Marie Weddings is a premier wedding planning and coordination service based in the heart of <strong>Dallas, Texas</strong>. We believe that every love story is unique and deserves a celebration that reflects its beauty and authenticity.</p>
                     <p>Our passion is to bring your wedding day vision to life, handling every detail with care, creativity, and a calm, professional approach. From the initial consultation to the final dance, we are dedicated to making your planning journey as joyful and stress-free as the day itself.</p>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="services">
             <h2>Our Services</h2>
             <div class="services">
                 <div class="service-item">
@@ -195,11 +372,100 @@
             </div>
         </section>
 
+        <section class="section" id="faqs">
+            <h2>FAQs</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>How do your services work?</h3>
+                    <p>We start with a complimentary consultation to understand your needs, followed by a customized proposal for the perfect planning package.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you travel for weddings?</h3>
+                    <p>Yes! While based in Dallas, we love planning and coordinating destination weddings. Contact us for a custom quote.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How far in advance should we book?</h3>
+                    <p>We recommend booking as soon as possible, ideally 9-12 months in advance, to ensure availability and a smooth planning process.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://via.placeholder.com/600x400.png?text=Wedding+1" alt="Wedding"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/600x400.png?text=Wedding+2" alt="Wedding"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/600x400.png?text=Wedding+3" alt="Wedding"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/600x400.png?text=Wedding+4" alt="Wedding"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/600x400.png?text=Wedding+5" alt="Wedding"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/600x400.png?text=Wedding+6" alt="Wedding"></div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>Contact Us</h2>
+            <p><strong>Phone:</strong> (316)-282-7151</p>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group-half">
+                        <div>
+                            <label for="partner1_first_name">Partner 1 First Name</label>
+                            <input type="text" id="partner1_first_name" name="partner1_first_name" required>
+                        </div>
+                        <div>
+                            <label for="partner1_last_name">Partner 1 Last Name</label>
+                            <input type="text" id="partner1_last_name" name="partner1_last_name" required>
+                        </div>
+                    </div>
+                    <div class="form-group-half">
+                        <div>
+                            <label for="partner2_first_name">Partner 2 First Name</label>
+                            <input type="text" id="partner2_first_name" name="partner2_first_name" required>
+                        </div>
+                        <div>
+                            <label for="partner2_last_name">Partner 2 Last Name</label>
+                            <input type="text" id="partner2_last_name" name="partner2_last_name" required>
+                        </div>
+                    </div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="wedding_date">Expected Wedding Date</label>
+                    <input type="date" id="wedding_date" name="wedding_date" required>
+                    
+                    <label for="budget">Wedding Budget</label>
+                    <input type="text" id="budget" name="budget" placeholder="$" required>
+                    
+                    <label for="guests">Guest Count</label>
+                    <input type="text" id="guests" name="guests" required>
+                    
+                    <label for="location">Where are you getting married?</label>
+                    <input type="text" id="location" name="location" required>
+                    
+                    <label for="request">Specific Request</label>
+                    <textarea id="request" name="request" rows="5"></textarea>
+                    
+                    <button type="submit" class="cta-button">Send</button>
+                </form>
+            </div>
+        </section>
+
     </div>
 
     <footer>
-        <p>&copy; 2025 Izabella Marie Weddings. All Rights Reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 Izabella Marie Weddings. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/izabellamarieweddings/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
     </footer>
 
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
