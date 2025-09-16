@@ -3,50 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atmilio - Main Landing Page</title>
+    <title>Izabella Marie Weddings | Wedding Planning & Coordination</title>
     <style>
+        /* General Body and Container Styling */
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
-            background-color: #f0f0f0;
-            text-align: center;
+            padding: 0;
+            background-color: #f7f3f0;
+            color: #4b4b4b;
+            line-height: 1.6;
         }
+
         .container {
-            padding: 2rem;
-            border-radius: 8px;
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        h1 {
-            color: #333;
+
+        /* Header and Hero Section */
+        header {
+            text-align: center;
+            padding: 40px 0;
         }
-        p {
-            color: #666;
-            margin-bottom: 1.5rem;
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin: 0;
+            color: #8c736a;
         }
-        a {
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+            color: #6a6a6a;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 100px 20px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1500x800.png?text=Elegant+Wedding+Hero+Image') no-repeat center center/cover;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .hero-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero-text p {
+            font-size: 1.2em;
+        }
+
+        .cta-button {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #4c51bf;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #8c736a;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+            transition: background-color 0.3s ease;
         }
-        a:hover {
-            background-color: #6b46c1;
+
+        .cta-button:hover {
+            background-color: #6a534c;
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #8c736a;
+        }
+
+        /* Services and About Us Layout */
+        .services, .about-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service-item, .about-item {
+            flex-basis: 30%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item h3 {
+            font-family: 'Playfair Display', serif;
+            color: #8c736a;
+            font-size: 1.5em;
+        }
+
+        .about-item {
+            flex-basis: 100%;
+        }
+        
+        a {
+            color: #8c736a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e6e0da;
+            color: #8c736a;
+            border-top: 1px solid #d9d0c9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+            .services, .about-content {
+                flex-direction: column;
+            }
+            .service-item, .about-item {
+                flex-basis: 100%;
+            }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="container">
-        <h1>Welcome to Atmilio</h1>
-        <p>This is the main landing page.</p>
-        <a href="./client-fe/client_portal.html">Go to Client Portal</a>
+        <header>
+            <h1>Izabella Marie Weddings</h1>
+            <p>Your Dream Wedding Awaits</p>
+        </header>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Bespoke Wedding Planning & Design</h2>
+                <p>Creating unforgettable moments and seamless celebrations tailored to your unique love story.</p>
+                <a href="mailto:connect@izabellamarieweddings.com" class="cta-button">Get a Quote</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-item">
+                    <p>Izabella Marie Weddings is a premier wedding planning and coordination service based in the heart of **Dallas, Texas**. We believe that every love story is unique and deserves a celebration that reflects its beauty and authenticity.</p>
+                    <p>Our passion is to bring your wedding day vision to life, handling every detail with care, creativity, and a calm, professional approach. From the initial consultation to the final dance, we are dedicated to making your planning journey as joyful and stress-free as the day itself.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Full-Service Planning</h3>
+                    <p>From vision to execution, we handle every detail so you can enjoy your engagement stress-free.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Day-of Coordination</h3>
+                    <p>Perfect for couples who have planned their day and want a professional to manage logistics on the big day.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Custom Design</h3>
+                    <p>We work with you to bring your unique style and aesthetic to life with personalized touches and decor.</p>
+                </div>
+            </div>
+        </section>
+
     </div>
+
+    <footer>
+        <p>&copy; 2025 Izabella Marie Weddings. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
