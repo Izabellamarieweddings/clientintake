@@ -354,7 +354,7 @@
             <h2>About Us</h2>
             <div class="about-content">
                 <div class="about-item">
-                    <p> Izabella Marie Weddings is a luxury wedding planning and coordination service. We believe that every love story is unique and deserves a celebration that reflects its beauty and authenticity.</p>
+                    <p>Izabella Marie Weddings is a luxury wedding planning and coordination service. We believe that every love story is unique and deserves a celebration that reflects its beauty and authenticity.</p>
                     <p>Our passion is to bring your wedding day vision to life, handling every detail with care, creativity, and a calm, professional approach. From the initial consultation to the final dance, we are dedicated to making your planning journey as joyful and stress-free as the day itself.</p>
                 </div>
             </div>
@@ -382,16 +382,16 @@
             <h2>FAQs</h2>
             <div class="faq-list">
                 <div class="faq-item">
-                    <h3>How do your services work?</h3>
-                    <p>We start with a complimentary consultation to understand your needs, followed by a customized proposal for the perfect planning package.</p>
+                    <h3>How much do your wedding planning services cost?</h3>
+                    <p>Our pricing is based on the scope of work and the level of service you need. We offer a variety of different packages, from full-service planning to day-of coordination. We can provide a custom quote after our initial consultation to better understand your specific needs. We work with a variety of budgets, and our goal is to help you allocate your funds effectively. We'll help you prioritize what's most important to you and find the best vendors and options to match your needs.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Do you travel for weddings?</h3>
-                    <p>Yes! While based in Dallas, we love planning and coordinating destination weddings. Contact us for a custom quote.</p>
+                    <p>Yes, we do! We love working in new locations and are ready to help you plan your special day wherever you choose to celebrate.</p>
                 </div>
                 <div class="faq-item">
                     <h3>How far in advance should we book?</h3>
-                    <p>We recommend booking as soon as possible, ideally 9-12 months in advance, to ensure availability and a smooth planning process.</p>
+                    <p>We recommend reaching out as soon as possible, ideally 9-12 months in advance for full-service planning and design to give your vision the time and detail it deserves. For partial planning or day-of coordination, we suggest connecting at least 4 months ahead to ensure we can secure your date.</p>
                 </div>
             </div>
         </section>
@@ -475,6 +475,24 @@
             const menu = document.getElementById('nav-menu');
             menu.classList.toggle('open');
         }
+
+        // JavaScript for FAQ toggle functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const header = item.querySelector('h3');
+            header.addEventListener('click', () => {
+                // Find the answer paragraph and toggle its display
+                const answer = item.querySelector('p');
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+                // Toggle the 'active' class on the h3 to change the '+' to '-'
+                header.classList.toggle('active');
+            });
+        });
     </script>
 </body>
 </html>
